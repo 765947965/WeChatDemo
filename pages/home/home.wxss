@@ -1,0 +1,81 @@
+/* pages/home/home.wxss */
+
+.flex-wrp-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+
+.flex-wrp-row-margin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30rpx;
+}
+
+.flex-wrp-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.item-left {
+    flex: 1; /* 重要 */
+    align-items: center;
+}
+
+.icon-left {
+    width: 250rpx;
+    height: 70rpx;
+    margin-left: 0rpx
+}
+
+.icon-right {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.icon-right-small {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.item-right {
+    position: relative;
+    align-items: center;
+}
+
+.icon-info {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.swiper-box {
+    border-radius: 20rpx;
+    overflow: hidden;
+    height:242.63rpx;
+    width: 710rpx;
+    margin: 20rpx
+}
+
+/* 轮播小点点 */
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: 2rpx;
+}
+
+.swiper-box .wx-swiper-dot {
+    display: inline-flex;
+    height: 5rpx;
+}
+
+.swiper-box .wx-swiper-dot::before {
+    content: '';
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.swiper-box .wx-swiper-dot-active::before {
+    background: #ff3333;
+}
