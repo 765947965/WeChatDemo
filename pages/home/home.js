@@ -1,5 +1,9 @@
 // pages/home/home.js
 var ext = require('exports');
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+var qqmapsdk = new QQMapWX({
+    key: 'KJLBZ-3OUAQ-XPB5R-GSKLL-WXOIT-QVF2N'
+});
 Page({
 
     /**
@@ -15,6 +19,14 @@ Page({
         duration: 1000,
         latitude: 0,
         longitude: 0,
+        addressMoreInfo: {},
+        deviceInfo: {},
+        deviceIconSrc: [
+            "../../image/category_1.png", "../../image/category_2.png",
+            "../../image/category_3.png", "../../image/category_4.png",
+            "../../image/category_5.png", "../../image/category_6.png",
+            "../../image/category_7.png"
+        ],
     },
 
     /**
@@ -64,7 +76,18 @@ Page({
                     latitude: res.latitude,
                     longitude: res.longitude,
                 });
-                self.loadData()
+                self.loadData();
+                qqmapsdk.reverseGeocoder({
+                    location: {latitude: res.latitude, longitude: res.longitude},
+                    success: function (res) {
+                        //address 城市
+                        console.log(res);
+                        self.setData({
+                            addressMoreInfo: res
+                        });
+                        self.loadDataDetail();
+                    }
+                });
             }
         })
     },
@@ -117,6 +140,35 @@ Page({
             latitude: parseFloat(data.latitude),
             longitude: parseFloat(data.longitude),
             scale: 18
+        })
+    },
+
+    loadDataDetail: function () {
+        const self = this;
+        var adcode = self.data.addressMoreInfo.result.ad_info.adcode;
+        wx.request({
+            url: 'https://www.xhg.com/customer/v1.0/statistics/site/query-available-site-info',
+            data: "{\"requestBody\":{\"data\":{\"areaCode\":\"" + adcode + "\",\"isThirty\":\"1\",\"latitude\":\"" + self.data.latitude + "\",\"longitude\":\"" + self.data.longitude + "\"}},\"requestHead\":{\"appId\":\"com.ps.recycling2c\",\"appVersion\":\"2.6.2\",\"areaCode\":\"" + adcode + "\",\"channel\":\"ydog_updateinapp\",\"clientName\":\"xhg_appclient_c\",\"deviceId\":\"00000000-483b-d8bf-0000-00005a9b40c1\",\"ostype\":\"ANDROID\",\"phoneModel\":\"16s\",\"phoneResolution\":\"1080*2232\",\"systemVersion\":\"9\",\"token\":\"\",\"validateTime\":\"1561599063002\",\"xhgLat\":\"" + self.data.latitude + "|" + self.data.longitude + "\"}}",
+            method: 'POST',
+            header: {
+                'content-type': 'application/json; charset=utf-8'
+            },// 设置请求的 header
+            success: function (res) {
+                wx.stopPullDownRefresh();
+                if (res.statusCode === 200) {
+                    console.log(res.data);
+                    self.setData({
+                        deviceInfo: res.data
+                    });
+                } else {
+                }
+            },
+            fail: function () {
+                wx.stopPullDownRefresh()
+            },
+            complete: function () {
+                wx.stopPullDownRefresh()
+            }
         })
     },
 });
