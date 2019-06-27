@@ -54,7 +54,7 @@
                                 item.siteAddressDetail}}
                             </text>
                         </view>
-                        <view class="flex-wrp-row" style="margin-top: 50rpx; width: 710rpx; margin-right: 20rpx">
+                        <view class="flex-wrp-row" style="margin-top: 50rpx; width: 710rpx; margin-right: 30rpx">
                             <block wx:for="{{ deviceInfo.responseBody.data.recyclingInfoList }}" wx:key="item">
                                 <view class='flex-wrp-column' style="flex-grow:1;">
                                     <image src='{{deviceIconSrc[item.type]}}' class='icon-right'
