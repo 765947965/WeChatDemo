@@ -27,7 +27,7 @@
     </view>
     <view class='flex-wrp-column' style=" width: 710rpx; margin-top: 6rpx;">
         <view style="flex-direction: row; justify-content:center;  width: 710rpx;">
-            <image src="../../image/icon_location_title.png" style="width: 10rpx; height: 26rpx; margin-left: 26rpx"
+            <image src="../../image/icon_location_title.png" style="width: 10rpx; height: 26rpx; margin-left: 36rpx"
                    mode='scaleToFill'></image>
             <text style="font-size: 30rpx;"> 我的环保金</text>
         </view>
@@ -47,7 +47,7 @@
         </view>
     </view>
 
-    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin-left: 20rpx; margin-right: 20rpx; margin-bottom:20rpx;width: 710rpx; height: 310rpx; margin-top: 30rpx">
+    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin-left: 20rpx; margin-right: 20rpx; margin-bottom:20rpx;width: 710rpx; height: 280rpx; margin-top: 30rpx">
         <block wx:for="{{ bodyData.responseBody.data.sitePageList }}" wx:key="item">
             <swiper-item>
                 <view bindtap="toMap" data-latitude="{{item.latitude}}}" data-longitude="{{item.longitude}}}">
@@ -71,12 +71,12 @@
                                 item.siteAddressDetail}}
                             </text>
                         </view>
-                        <view class="flex-wrp-row" style="margin-top: 50rpx; width: 710rpx; margin-right: 10rpx">
+                        <view class="flex-wrp-row" style="margin-top: 30rpx; width: 710rpx; margin-right: 10rpx">
                             <block wx:for="{{ deviceInfo.responseBody.data.recyclingInfoList }}" wx:key="item">
                                 <view class='flex-wrp-column' style="flex-grow:1;">
                                     <image src='{{deviceIconSrc[item.type]}}' class='icon-right'
                                            mode='aspectFit'></image>
-                                    <text style="font-size: 26rpx;">
+                                    <text style="font-size: 26rpx;margin-top: -14rpx;">
                                         {{item.name}}
                                     </text>
                                 </view>
