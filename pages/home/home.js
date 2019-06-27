@@ -110,7 +110,7 @@ Page({
         const self = this;
         wx.request({
             url: 'https://www.xhg.com/customer/v1.0/delivery/query-delivery-statistics',
-            data: "{\"requestBody\":{\"data\":{\"areaCode\":\"441900\",\"latitude\":\"" + self.data.latitude + "\",\"longitude\":\"" + self.data.longitude + "\"}},\"requestHead\":{\"appId\":\"com.ps.recycling2c\",\"appVersion\":\"2.6.2\",\"areaCode\":\"441900\",\"channel\":\"ydog_updateinapp\",\"clientName\":\"xhg_appclient_c\",\"deviceId\":\"00000000-483b-d8bf-0000-00005a9b40c1\",\"ostype\":\"ANDROID\",\"phoneModel\":\"16s\",\"phoneResolution\":\"1080*2232\",\"systemVersion\":\"9\",\"token\":\"\",\"validateTime\":\"" + Date.parse(new Date()) + "\",\"xhgLat\":\"" + self.data.latitude + "|" + self.data.longitude + "\"}}",
+            data: "{\"requestBody\":{\"data\":{\"areaCode\":\"441900\",\"latitude\":\"" + self.data.latitude + "\",\"longitude\":\"" + self.data.longitude + "\"}},\"requestHead\":{\"appId\":\"com.ps.recycling2c\",\"appVersion\":\"2.6.2\",\"areaCode\":\"441900\",\"channel\":\"ydog_updateinapp\",\"clientName\":\"xhg_appclient_c\",\"deviceId\":\"00000000-483b-d8bf-0000-00005a9b40c1\",\"ostype\":\"ANDROID\",\"phoneModel\":\"16s\",\"phoneResolution\":\"1080*2232\",\"systemVersion\":\"9\",\"token\":\"V1@897e6a9017539d395675094ab277e847a074f249dc9dd32143661068fb91d0f2c9d4e2d9b75523ef4bd5e5b927939ed3\",\"validateTime\":\"" + Date.parse(new Date()) + "\",\"xhgLat\":\"" + self.data.latitude + "|" + self.data.longitude + "\"}}",
             method: 'POST',
             header: {
                 'content-type': 'application/json; charset=utf-8'

@@ -1,17 +1,6 @@
 <!--pages/home/home.wxml-->
 <wxs src="../utils/distance.wxs" module="tools"/>
 <view wx:if="{{hasBodyData}}">
-    <!--    <view class='flex-wrp-row'>
-            <view class='item-left flex-wrp-row'>
-                <image src='../../image/logo_xhg.png' class='icon-left' mode='aspectFit'></image>
-            </view>
-            <view class='item-right flex-wrp-row'>
-                <image src='../../image/icon_home_msg.png' class='icon-right' mode='aspectFit'></image>
-            </view>
-            <view class='item-right flex-wrp-row'>
-                <image src='../../image/icon_home_service.png' class='icon-right' mode='aspectFit'></image>
-            </view>
-        </view>-->
     <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
             duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{ bodyData.responseBody.data.headBannerList }}" wx:key="item">
@@ -22,7 +11,7 @@
             </swiper-item>
         </block>
     </swiper>
-    <view class='flex-wrp-row-margin'>
+    <view class='flex-wrp-row-margin' style=" margin-top: -6rpx">
         <blocl wx:for="{{ bodyData.responseBody.data.iconInfoDTOList }}" wx:key="item">
             <view class='flex-wrp-column' style="height:180rpx; width: 187.5rpx">
                 <image src="{{ item.iconPath }}" class='icon-info' mode='scaleToFill'></image>
@@ -30,13 +19,35 @@
             </view>
         </blocl>
     </view>
-    <view class='flex-wrp-row-margin'>
+    <view class='flex-wrp-row-margin' style=" margin-top: -2rpx">
         <blocl wx:for="{{ bodyData.responseBody.data.activityBannerList }}" wx:key="item">
             <image src="{{ item.url }}" class='icon-info' mode='aspectFit'
                    style="height:160rpx; width: 340rpx; margin: 18.5rpx; box-shadow:0px 2px 5px 5px ghostwhite;"></image>
         </blocl>
     </view>
-    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin: 20rpx; width: 710rpx; height: 310rpx">
+    <view class='flex-wrp-column' style=" width: 710rpx; margin-top: 6rpx;">
+        <view style="flex-direction: row; justify-content:center;  width: 710rpx;">
+            <image src="../../image/icon_location_title.png" style="width: 10rpx; height: 26rpx; margin-left: 26rpx"
+                   mode='scaleToFill'></image>
+            <text style="font-size: 30rpx;"> 我的环保金</text>
+        </view>
+        <view class="flex-wrp-row" style=" width: 710rpx; margin-top: 10rpx">
+            <view class='flex-wrp-column' style=" flex: 1;">
+                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.packetAmount}}</text>
+                <text style="font-size: 26rpx; color: gray"> 当前环保金</text>
+            </view>
+            <view class='flex-wrp-column' style=" flex: 1;">
+                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.deliveryCount}}</text>
+                <text style="font-size: 26rpx; color: gray"> 投递次数</text>
+            </view>
+            <view class='flex-wrp-column' style=" flex: 1;">
+                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.totalIncome}}</text>
+                <text style="font-size: 26rpx; color: gray"> 累计收益</text>
+            </view>
+        </view>
+    </view>
+
+    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin-left: 20rpx; margin-right: 20rpx; margin-bottom:20rpx;width: 710rpx; height: 310rpx; margin-top: 30rpx">
         <block wx:for="{{ bodyData.responseBody.data.sitePageList }}" wx:key="item">
             <swiper-item>
                 <view bindtap="toMap" data-latitude="{{item.latitude}}}" data-longitude="{{item.longitude}}}">
