@@ -1,5 +1,5 @@
 // pages/home/home.js
-var ext = require('exports')
+var ext = require('exports');
 Page({
 
     /**
@@ -110,4 +110,13 @@ Page({
             }
         })
     },
-})
+
+    toMap: function (event) {
+        var data = event.currentTarget.dataset;
+        wx.openLocation({
+            latitude: parseFloat(data.latitude),
+            longitude: parseFloat(data.longitude),
+            scale: 18
+        })
+    },
+});
