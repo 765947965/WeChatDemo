@@ -140,7 +140,7 @@ Page({
             latitude: parseFloat(data.latitude),
             longitude: parseFloat(data.longitude),
             scale: 18
-        })
+        });
     },
 
     loadDataDetail: function () {

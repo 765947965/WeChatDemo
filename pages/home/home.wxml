@@ -1,4 +1,5 @@
 <!--pages/home/home.wxml-->
+<wxs src="../utils/distance.wxs" module="tools"/>
 <view wx:if="{{hasBodyData}}">
     <!--    <view class='flex-wrp-row'>
             <view class='item-left flex-wrp-row'>
@@ -35,17 +36,22 @@
                    style="height:160rpx; width: 340rpx; margin: 18.5rpx; box-shadow:0px 2px 5px 5px ghostwhite;"></image>
         </blocl>
     </view>
-    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin: 20rpx; width: 710rpx; height: 340rpx">
+    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin: 20rpx; width: 710rpx; height: 310rpx">
         <block wx:for="{{ bodyData.responseBody.data.sitePageList }}" wx:key="item">
             <swiper-item>
                 <view bindtap="toMap" data-latitude="{{item.latitude}}}" data-longitude="{{item.longitude}}}">
-                    <view>
-                        <image src='../../image/icon_location_point.png' class='icon-right' mode='aspectFit'
-                               style="margin-left: 16rpx; margin-top: 16rpx; float: left;"></image>
+                    <view class="flex-wrp-row">
+                        <view style="margin-left: 16rpx; margin-top: 16rpx; float: left; flex: 1;">
+                            <image src='../../image/icon_location_point.png' class='icon-right'
+                                   mode='aspectFit'></image>
+                        </view>
+                        <text style="font-size: 26rpx;margin-right: 16rpx;margin-top: -20rpx;">
+                            {{tools.getFlatternDistance(latitude, longitude, item.latitude, item.longitude)}}米
+                        </text>
                         <image src='../../image/icon_right_arrow.png' class='icon-right-small' mode='aspectFit'
-                               style="margin-right: 16rpx; float: right; margin-top: 16rpx;"></image>
+                               style="margin-right: 16rpx; margin-top: 16rpx;"></image>
                     </view>
-                    <view class='flex-wrp-column'>
+                    <view class='flex-wrp-column' style="margin-top: -100rpx;">
                         <view class='flex-wrp-column'>
                             <text style="font-size: 36rpx;">
                                 {{item.siteAddressApartment}}
