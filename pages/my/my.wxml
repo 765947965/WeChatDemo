@@ -1,17 +1,23 @@
 <!--pages/my/my.wxml-->
-<view class="header-container">
+<view  wx:if="{{hasUserMoneyInfo}}" class="header-container">
     <image class="image-back" src="../../image/bg_phone_price.png" mode='aspectFit'></image>
     <view class="horizontalLayout">
         <image class="headImage" src="../../image/sobot_emoticon_pressed.png"></image>
         <view class="textName">
-            <text class="textTitle">环保达人</text>
-            <text class="textTitleTips">环保达人</text>
+            <text class="textTitle">{{userMoneyInfo.responseBody.data.name}}</text>
+            <text class="textTitleTips">{{userMoneyInfo.responseBody.data.realName}}</text>
         </view>
     </view>
     <view class="moneybox">
         <view class="moneyName">
             <text class="moneytextTitle">可用环保金</text>
-            <text class="moneytextTitleTips">可用环保金</text>
+            <text class="moneytextTitleTips">{{userMoneyInfo.responseBody.data.totalIncome}}</text>
+            <view class="dottedLine"></view>
+            <text class="moneyTips">温馨提示：环保金可以在APP兑换成人民币体现</text>
+        </view>
+        <view class="money-button-box">
+            <button class="money-button-item">账单明细</button>
+            <button class="money-button-item">下载APP</button>
         </view>
     </view>
 </view>
