@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <wxs src="../utils/distance.wxs" module="tools"/>
 <view wx:if="{{hasBodyData}}" class="page-box">
-    <swiper class='banner-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" bindchange="swiperChange"
+    <swiper class='banner-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
             duration="{{duration}}" circular="{{circular}}" indicator-active-color="#E88A14">
         <block wx:for="{{ bodyData.responseBody.data.headBannerList }}" wx:key="item">
             <swiper-item>
