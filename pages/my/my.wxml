@@ -1,0 +1,17 @@
+<!--pages/my/my.wxml-->
+<view class="header-container">
+    <image class="image-back" src="../../image/bg_phone_price.png" mode='aspectFit'></image>
+    <view class="horizontalLayout">
+        <image class="headImage" src="../../image/sobot_emoticon_pressed.png"></image>
+        <view class="textName">
+            <text class="textTitle">环保达人</text>
+            <text class="textTitleTips">环保达人</text>
+        </view>
+    </view>
+    <view class="moneybox">
+        <view class="moneyName">
+            <text class="moneytextTitle">可用环保金</text>
+            <text class="moneytextTitleTips">可用环保金</text>
+        </view>
+    </view>
+</view>

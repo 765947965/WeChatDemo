@@ -1,81 +1,190 @@
 /* pages/home/home.wxss */
-
-.flex-wrp-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:center;
-}
-
-.flex-wrp-row-margin {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 30rpx;
-}
-
-.flex-wrp-column {
+.page-box {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+}
+
+.banner-box {
+    display: flex;
+    border-radius: 20rpx;
+    overflow: hidden;
+    height: 242.63rpx;
+    width: 710rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    position: relative;
+}
+
+.banner-image {
+    width: 710rpx;
+    height: 242.63rpx;
+}
+
+.ad-banner-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 180rpx;
+    position: relative;
+}
+
+.ad-banner-item-box {
+    display: flex;
+    height: 240rpx;
+    width: 187.5rpx;
+    flex-direction: column;
+    position: relative;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
 }
 
-.item-left {
-    flex: 1; /* 重要 */
+.ad-banner-item-icon {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.ad-banner-item-icon {
+    font-size: 26rpx;
+    margin-top: 16rpx
+}
+
+.ad-big-ico-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 170rpx;
+    position: relative;
+}
+
+.ad-big-ico-item {
+    height: 160rpx;
+    width: 340rpx;
+    margin: 18.5rpx;
+    box-shadow: 0px 2px 5px 5px ghostwhite;
+}
+
+.money-box {
+    width: 710rpx;
+    height: 120rpx;
+    margin-top: 36rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.money-title {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.money-title-icon {
+    width: 10rpx;
+    height: 26rpx;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
+}
+
+.money-title-text {
+    font-size: 30rpx;
+    margin-left: 10rpx;
+}
+
+.money-detail-box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 20rpx;
+}
+
+.money-detail-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1;
     align-items: center;
+    justify-content: center;
 }
 
-.icon-left {
-    width: 250rpx;
-    height: 70rpx;
-    margin-left: 0rpx
+.money-detail-item-text-money {
+    font-size: 46rpx;
 }
 
-.icon-right {
-    width: 50rpx;
-    height: 50rpx;
+.money-detail-item-text-tips {
+    font-size: 26rpx;
+    color: gray;
 }
 
-.icon-right-small {
-    width: 30rpx;
-    height: 30rpx;
+.device-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 710rpx;
+    height: 300rpx;
+    margin-left: 20rpx;
+    margin-top: 60rpx;
+    box-shadow: 0px 2px 5px 5px ghostwhite;
 }
 
-.item-right {
+.device-title-box {
+    display: flex;
+    flex-direction: row;
     position: relative;
     align-items: center;
 }
-
-.icon-info {
-    width: 120rpx;
-    height: 120rpx;
+.device-title-icon{
+    width: 30rpx;
+    height: 30rpx;
+    margin: 16rpx;
 }
-
-.swiper-box {
-    border-radius: 20rpx;
-    overflow: hidden;
-    height:242.63rpx;
-    width: 710rpx;
-    margin: 20rpx
+.device-title-text-box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
-
-/* 轮播小点点 */
-.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
-    margin-bottom: 2rpx;
+.device-title-text{
+    font-size: 36rpx;
 }
-
-.swiper-box .wx-swiper-dot {
-    display: inline-flex;
-    height: 5rpx;
+.device-title-distance{
+    font-size: 26rpx;
 }
-
-.swiper-box .wx-swiper-dot::before {
-    content: '';
-    flex-grow: 1;
-    background: rgba(255, 255, 255, 0.8);
+.device-address{
+    font-size: 26rpx;
+    margin-top: 16rpx;
 }
-
-.swiper-box .wx-swiper-dot-active::before {
-    background: #ff3333;
+.device-address-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.device-info-box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30rpx;
+}
+.device-info-item-box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+.device-info-item-image{
+    width:50rpx;
+    height: 50rpx;
 }

@@ -1,90 +1,85 @@
 <!--pages/home/home.wxml-->
 <wxs src="../utils/distance.wxs" module="tools"/>
-<view wx:if="{{hasBodyData}}">
-    <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
-            duration="{{duration}}" circular="{{circular}}">
+<view wx:if="{{hasBodyData}}" class="page-box">
+    <swiper class='banner-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" bindchange="swiperChange"
+            duration="{{duration}}" circular="{{circular}}" indicator-active-color="#E88A14">
         <block wx:for="{{ bodyData.responseBody.data.headBannerList }}" wx:key="item">
             <swiper-item>
                 <view>
-                    <image src="{{ item.url }}" mode='scaleToFill' style="width: 710rpx; height:242.63rpx"></image>
+                    <image src="{{ item.url }}" mode='scaleToFill' class="banner-image"></image>
                 </view>
             </swiper-item>
         </block>
     </swiper>
-    <view class='flex-wrp-row-margin' style=" margin-top: -6rpx">
+    <view class='ad-banner-box'>
         <blocl wx:for="{{ bodyData.responseBody.data.iconInfoDTOList }}" wx:key="item">
-            <view class='flex-wrp-column' style="height:180rpx; width: 187.5rpx">
-                <image src="{{ item.iconPath }}" class='icon-info' mode='scaleToFill'></image>
-                <text style="font-size: 26rpx; margin-top: 16rpx">{{item.name}}</text>
+            <view class='ad-banner-item-box'>
+                <image src="{{ item.iconPath }}" class='ad-banner-item-icon' mode='scaleToFill'></image>
+                <text class="ad-banner-item-icon">{{item.name}}</text>
             </view>
         </blocl>
     </view>
-    <view class='flex-wrp-row-margin' style=" margin-top: -2rpx">
+    <view class='ad-big-ico-box'>
         <blocl wx:for="{{ bodyData.responseBody.data.activityBannerList }}" wx:key="item">
-            <image src="{{ item.url }}" class='icon-info' mode='aspectFit'
-                   style="height:160rpx; width: 340rpx; margin: 18.5rpx; box-shadow:0px 2px 5px 5px ghostwhite;"></image>
+            <image src="{{ item.url }}" class='ad-big-ico-item' mode='aspectFit'></image>
         </blocl>
     </view>
-    <view class='flex-wrp-column' style=" width: 710rpx; margin-top: 6rpx;">
-        <view style="flex-direction: row; justify-content:center;  width: 710rpx;">
-            <image src="../../image/icon_location_title.png" style="width: 10rpx; height: 26rpx; margin-left: 36rpx"
+    <view class='money-box'>
+        <view class="money-title">
+            <image src="../../image/icon_location_title.png" class="money-title-icon"
                    mode='scaleToFill'></image>
-            <text style="font-size: 30rpx;"> 我的环保金</text>
+            <text class="money-title-text"> 我的环保金</text>
         </view>
-        <view class="flex-wrp-row" style=" width: 710rpx; margin-top: 10rpx">
-            <view class='flex-wrp-column' style=" flex: 1;">
-                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.packetAmount}}</text>
-                <text style="font-size: 26rpx; color: gray"> 当前环保金</text>
+        <view class="money-detail-box">
+            <view class='money-detail-item'>
+                <text class="money-detail-item-text-money">
+                    {{bodyData.responseBody.data.firstPageStatistics.packetAmount}}
+                </text>
+                <text class="money-detail-item-text-tips"> 当前环保金</text>
             </view>
-            <view class='flex-wrp-column' style=" flex: 1;">
-                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.deliveryCount}}</text>
-                <text style="font-size: 26rpx; color: gray"> 投递次数</text>
+            <view class='money-detail-item'>
+                <text class="money-detail-item-text-money">
+                    {{bodyData.responseBody.data.firstPageStatistics.deliveryCount}}
+                </text>
+                <text class="money-detail-item-text-tips"> 投递次数</text>
             </view>
-            <view class='flex-wrp-column' style=" flex: 1;">
-                <text style="font-size: 46rpx;">{{bodyData.responseBody.data.firstPageStatistics.totalIncome}}</text>
-                <text style="font-size: 26rpx; color: gray"> 累计收益</text>
+            <view class='money-detail-item'>
+                <text class="money-detail-item-text-money">
+                    {{bodyData.responseBody.data.firstPageStatistics.totalIncome}}
+                </text>
+                <text class="money-detail-item-text-tips"> 累计收益</text>
             </view>
         </view>
     </view>
-
-    <swiper style="box-shadow:0px 2px 5px 5px ghostwhite; margin-left: 20rpx; margin-right: 20rpx; margin-bottom:20rpx;width: 710rpx; height: 280rpx; margin-top: 30rpx">
-        <block wx:for="{{ bodyData.responseBody.data.sitePageList }}" wx:key="item">
-            <swiper-item>
-                <view bindtap="toMap" data-latitude="{{item.latitude}}}" data-longitude="{{item.longitude}}}">
-                    <view class="flex-wrp-row">
-                        <view style="margin-left: 16rpx; margin-top: 16rpx; float: left; flex: 1;">
-                            <image src='../../image/icon_location_point.png' class='icon-right'
-                                   mode='aspectFit'></image>
-                        </view>
-                        <text style="font-size: 26rpx;margin-right: 16rpx;margin-top: -20rpx;">
-                            {{tools.getFlatternDistance(latitude, longitude, item.latitude, item.longitude)}}米
-                        </text>
-                        <image src='../../image/icon_right_arrow.png' class='icon-right-small' mode='aspectFit'
-                               style="margin-right: 16rpx; margin-top: 16rpx;"></image>
-                    </view>
-                    <view class='flex-wrp-column' style="margin-top: -100rpx;">
-                        <view class='flex-wrp-column'>
-                            <text style="font-size: 36rpx;">
-                                {{item.siteAddressApartment}}
-                            </text>
-                            <text style="font-size: 26rpx; margin-top: 16rpx">{{item.siteAddressStreet + " " +
-                                item.siteAddressDetail}}
-                            </text>
-                        </view>
-                        <view class="flex-wrp-row" style="margin-top: 30rpx; width: 710rpx; margin-right: 10rpx">
-                            <block wx:for="{{ deviceInfo.responseBody.data.recyclingInfoList }}" wx:key="item">
-                                <view class='flex-wrp-column' style="flex-grow:1;">
-                                    <image src='{{deviceIconSrc[item.type]}}' class='icon-right'
-                                           mode='aspectFit'></image>
-                                    <text style="font-size: 26rpx;margin-top: -14rpx;">
-                                        {{item.name}}
-                                    </text>
-                                </view>
-                            </block>
-                        </view>
-                    </view>
+    <view class="device-box">
+        <view class="device-title-box">
+            <image src='../../image/icon_location_point.png' class='device-title-icon'
+                   mode='aspectFit'></image>
+            <view class="device-title-text-box"></view>
+            <text class="device-title-distance">{{tools.getFlatternDistance(latitude, longitude,
+                bodyData.responseBody.data.sitePageList[0].latitude,
+                bodyData.responseBody.data.sitePageList[0].longitude)}}米
+            </text>
+            <image src='../../image/icon_right_arrow.png' class='device-title-icon'
+                   mode='aspectFit'></image>
+        </view>
+        <view class="device-address-box">
+            <text class="device-title-text">{{bodyData.responseBody.data.sitePageList[0].siteAddressApartment}}
+            </text>
+            <text class="device-address">{{bodyData.responseBody.data.sitePageList[0].siteAddressStreet + " " +
+                bodyData.responseBody.data.sitePageList[0].siteAddressDetail}}
+            </text>
+        </view>
+        <view class="device-info-box">
+            <block wx:for="{{ deviceInfo.responseBody.data.recyclingInfoList }}" wx:key="item">
+                <view class="device-info-item-box">
+                    <image src='{{deviceIconSrc[item.type]}}' class='device-info-item-image'
+                           mode='aspectFit'></image>
+                    <text style="font-size: 26rpx;margin-top: -14rpx;">
+                        {{item.name}}
+                    </text>
                 </view>
-            </swiper-item>
-        </block>
-    </swiper>
+            </block>
+        </view>
+    </view>
 </view>

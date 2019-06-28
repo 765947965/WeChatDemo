@@ -1,0 +1,75 @@
+/* pages/my/my.wxss */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    height: 500rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.image-back {
+    width: 100%;
+    height: 270rpx;
+    z-index: 1;
+    position: fixed;
+}
+
+.horizontalLayout {
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    position: relative;
+}
+
+.headImage {
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 26rpx;
+    margin-top: 26rpx;
+}
+
+.textName {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.textTitle {
+    margin-left: 20rpx;
+    margin-top: 38rpx;
+    font-size: 32rpx;
+}
+
+.textTitleTips {
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+    font-size: 20rpx;
+}
+
+.moneybox {
+    box-shadow: 0px 2px 5px 5px ghostwhite;
+    margin: 36rpx;
+    display: flex;
+    width: 678rpx;
+    background-color: white;
+    height: 200rpx;
+    flex-direction: row;
+    z-index: 2;
+    position: relative;
+}
+
+.moneyName {
+    margin: 30rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.moneytextTitle {
+    font-size: 20rpx;
+}
+
+.moneytextTitleTips {
+    margin-top: 10rpx;
+    font-size: 50rpx;
+}

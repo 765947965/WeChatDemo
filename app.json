@@ -2,8 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,5 +16,25 @@
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "tabBar": {
+    "color": "#898989",
+    "selectedColor": "#06AEB1",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "image/sobot_emoticon_normal.png",
+        "selectedIconPath": "image/sobot_emoticon_pressed.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "image/sobot_emoticon_normal.png",
+        "selectedIconPath": "image/sobot_emoticon_pressed.png"
+      }
+    ]
   }
 }
