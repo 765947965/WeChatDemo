@@ -112,17 +112,17 @@
 .more-info-item-box{
     display: flex;
     flex-direction: row;
-    height: 80rpx;
+    height: 100rpx;
     position: relative;
     align-items: center;
 }
 .more-info-item-icon{
-    width:40rpx;
-    height: 40rpx;
+    width:50rpx;
+    height: 50rpx;
 }
 .more-info-item-name{
     margin-left: 20rpx;
-    font-size: 30rpx;
+    font-size: 32rpx;
     flex: 1;
 }
 .more-info-item-right-icon{

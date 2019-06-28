@@ -121,7 +121,8 @@ Page({
                     self.setData({
                         bodyData: res.data,
                         hasBodyData: true
-                    })
+                    });
+                    console.log(res.data);
                 } else {
                 }
             },
@@ -171,4 +172,39 @@ Page({
             }
         })
     },
+    clickIcon: function (event) {
+        const self = this;
+        var data = event.currentTarget.dataset;
+        if ("5" === data.type) {
+            wx.scanCode({
+                success: (res) => {
+                    console.log(res);
+                    self.setData({});
+                    self.showResult('扫码结果', res.result);
+                }
+            })
+        } else {
+            self.showResult(data.title, data.url);
+        }
+    },
+
+    clickBigIcon: function (event) {
+        const self = this;
+        var data = event.currentTarget.dataset;
+        self.showResult(data.title, data.url);
+    },
+
+    showResult: function (title, message) {
+        wx.showModal({
+            title: title,
+            content: message,
+            success: function (res) {
+                if (res.confirm) {//这里是点击了确定以后
+                    console.log('用户点击确定')
+                } else {//这里是点击了取消以后
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    }
 });

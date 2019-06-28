@@ -5,7 +5,7 @@
             duration="{{duration}}" circular="{{circular}}" indicator-active-color="#E88A14">
         <block wx:for="{{ bodyData.responseBody.data.headBannerList }}" wx:key="item">
             <swiper-item>
-                <view>
+                <view bindtap="clickBigIcon" data-title="{{ item.title }}" data-url="{{ item.forwardUrl }}">
                     <image src="{{ item.url }}" mode='scaleToFill' class="banner-image"></image>
                 </view>
             </swiper-item>
@@ -13,7 +13,7 @@
     </swiper>
     <view class='ad-banner-box'>
         <blocl wx:for="{{ bodyData.responseBody.data.iconInfoDTOList }}" wx:key="item">
-            <view class='ad-banner-item-box'>
+            <view class='ad-banner-item-box' bindtap="clickIcon" data-title="{{ item.name }}" data-type="{{ item.title }}" data-url="{{ item.url }}">
                 <image src="{{ item.iconPath }}" class='ad-banner-item-icon' mode='scaleToFill'></image>
                 <text class="ad-banner-item-icon">{{item.name}}</text>
             </view>
@@ -21,7 +21,8 @@
     </view>
     <view class='ad-big-ico-box'>
         <blocl wx:for="{{ bodyData.responseBody.data.activityBannerList }}" wx:key="item">
-            <image src="{{ item.url }}" class='ad-big-ico-item' mode='aspectFit'></image>
+            <image src="{{ item.url }}" class='ad-big-ico-item' mode='aspectFit'
+                   bindtap="clickBigIcon" data-title="{{ item.title }}" data-url="{{ item.forwardUrl }}"></image>
         </blocl>
     </view>
     <view class='money-box'>
