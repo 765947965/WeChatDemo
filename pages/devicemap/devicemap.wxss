@@ -1,0 +1,125 @@
+/* pages/devicemap/devicemap.wxss */
+.root-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+}
+
+.map-box {
+    width: 100%;
+    height: 580rpx;
+    position: fixed;
+}
+
+.imag-list {
+    width: 166.32rpx;
+    height: 79.38rpx;
+    margin-top: 46rpx;
+    margin-left: 570rpx;
+    position: fixed;
+}
+
+.imag-to-location {
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 480rpx;
+    margin-left: 20rpx;
+    position: fixed;
+}
+
+.imag-bottom {
+    width: 100%;
+    height: 30rpx;
+    margin-top: 550rpx;
+    position: fixed;
+}
+
+.imag-navigation {
+    width: 180rpx;
+    height: 180rpx;
+    margin-top: 495rpx;
+    margin-left: 550rpx;
+}
+
+.info-box {
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+
+.device-name {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    margin-left: 32rpx;
+    margin-top: -70rpx;
+}
+
+.device-name-text {
+    font-size: 36rpx;
+}
+
+.device-name-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 20rpx;
+}
+.device-address-box{
+    display: flex;
+    flex-direction: row;
+    height: 40rpx;
+    position: relative;
+    align-items: center;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.device-address-icon-location{
+    width: 42rpx;
+    height: 42rpx;
+}
+.device-address-icon{
+    width: 34rpx;
+    height: 34rpx;
+    margin-left: 4rpx;
+}
+.device-address-text{
+    font-size: 26rpx;
+    margin-left: 20rpx;
+    word-break:break-all;
+}
+.device-line{
+    width: 690rpx;
+    height: 1px;
+    margin: 30rpx;
+    background-color: gray;
+}
+.device-box-box{
+    display: flex;
+    margin-top: -20rpx;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.device-box-item-box{
+    width: 220rpx;
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-left: 30rpx;
+}
+.device-box-item-icon{
+    width: 60rpx;
+    height: 60rpx;
+}
+.device-box-item-more-info-box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.device-box-item-more-info-text{
+    font-size: 22rpx;
+    margin-left: 10rpx;
+}

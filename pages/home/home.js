@@ -136,11 +136,10 @@ Page({
     },
 
     toMap: function (event) {
-        var data = event.currentTarget.dataset;
-        wx.openLocation({
-            latitude: parseFloat(data.latitude),
-            longitude: parseFloat(data.longitude),
-            scale: 18
+        const self = this;
+        wx.navigateTo({
+            url: '/pages/devicemap/devicemap?deviceInfo=' + JSON.stringify(self.data.deviceInfo)
+                + '&latitude=' + self.data.latitude + '&longitude=' + self.data.longitude
         });
     },
 

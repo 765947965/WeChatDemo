@@ -1,0 +1,42 @@
+<!--pages/devicemap/devicemap.wxml-->
+<wxs src="../utils/distance.wxs" module="tools"/>
+<view class="root-box">
+    <map class="map-box" id="map" longitude="{{longitude}}"
+         latitude="{{latitude}}" scale="14" markers="{{markers}}"
+         bindmarkertap="clickmarker" show-location>
+        <cover-image class="imag-list" src="../../image/map_list_view.png" bindtap="toListPage"/>
+        <cover-image class="imag-to-location" src="../../image/ic_map_positioning.png" bindtap="toLocation"/>
+        <cover-image class="imag-bottom" src="../../image/home_user_bottom_split.png"/>
+        <cover-image class="imag-navigation" src="../../image/ic_gps_btn.png" bindtap="toNavigation"/>
+    </map>
+    <view class="info-box">
+        <cover-image class="imag-navigation" src="../../image/ic_gps_btn.png" bindtap="toNavigation"/>
+        <view class="device-name">
+            <text class="device-name-text">{{deviceInfo.responseBody.data.addressApartment}}</text>
+            <image class="device-name-icon" src="../../image/ic_auth_shield.png"></image>
+        </view>
+        <view class="device-address-box">
+            <image class="device-address-icon-location" src="../../image/map_icon_location.png"></image>
+            <text class="device-address-text">{{tools.getFlatternDistance(latitude, longitude,
+                deviceInfo.responseBody.data.latitude,
+                deviceInfo.responseBody.data.longitude)}}米 | {{deviceInfo.responseBody.data.siteAddress}}
+            </text>
+        </view>
+        <view class="device-address-box">
+            <image class="device-address-icon" src="../../image/map_icon_time.png"></image>
+            <text class="device-address-text">周一至周日 04:30-次日01:15 | 编号：{{deviceInfo.responseBody.data.siteCode}}</text>
+        </view>
+        <view class="device-line"></view>
+        <view class="device-box-box">
+            <block wx:for="{{ deviceInfo.responseBody.data.recyclingInfoList }}" wx:key="item">
+                <view class="device-box-item-box">
+                    <image class="device-box-item-icon" src='{{deviceIconSrc[item.type]}}'></image>
+                    <view class="device-box-item-more-info-box">
+                        <text class="device-box-item-more-info-text">{{item.name}}</text>
+                        <text class="device-box-item-more-info-text">{{devicePrice[item.type]}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
