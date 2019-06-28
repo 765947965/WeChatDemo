@@ -2,7 +2,6 @@
 .header-container {
     display: flex;
     flex-direction: column;
-    height: 500rpx;
     background-color: #fff;
     position: relative;
 }
@@ -100,4 +99,33 @@
     line-height: 50rpx;
     background-color: #FFD700;
     border-radius: 20rpx;
+}
+.more-info-box{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    margin-top: 10rpx;
+}
+.more-info-item-box{
+    display: flex;
+    flex-direction: row;
+    height: 80rpx;
+    position: relative;
+    align-items: center;
+}
+.more-info-item-icon{
+    width:40rpx;
+    height: 40rpx;
+}
+.more-info-item-name{
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    flex: 1;
+}
+.more-info-item-right-icon{
+    width:30rpx;
+    height: 30rpx;
 }
