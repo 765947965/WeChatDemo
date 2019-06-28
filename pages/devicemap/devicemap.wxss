@@ -93,7 +93,7 @@
     width: 690rpx;
     height: 1px;
     margin: 30rpx;
-    background-color: gray;
+    background-color: #EEEEEE;
 }
 .device-box-box{
     display: flex;

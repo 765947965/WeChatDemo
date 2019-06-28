@@ -1,7 +1,7 @@
 var getFlatternDistance = function (lat1, lng1, lat2, lng2) {
-                                  var f = getRad((lat1 + parseFloat(lat2)) / 2);
-                                  var g = getRad((lat1 - parseFloat(lat2)) / 2);
-                                  var l = getRad((lng1 - parseFloat(lng2)) / 2);
+                                  var f = getRad((parseFloat(lat1) + parseFloat(lat2)) / 2);
+                                  var g = getRad((parseFloat(lat1) - parseFloat(lat2)) / 2);
+                                  var l = getRad((parseFloat(lng1) - parseFloat(lng2)) / 2);
 
                                   var sg = Math.sin(g);
                                   var sl = Math.sin(l);

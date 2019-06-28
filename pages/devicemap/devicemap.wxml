@@ -1,6 +1,6 @@
 <!--pages/devicemap/devicemap.wxml-->
 <wxs src="../utils/distance.wxs" module="tools"/>
-<view class="root-box">
+<view wx:if="{{hasDeviceInfo}}"  class="root-box">
     <map class="map-box" id="map" longitude="{{longitude}}"
          latitude="{{latitude}}" scale="14" markers="{{markers}}"
          bindmarkertap="clickmarker" show-location>

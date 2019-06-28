@@ -12,6 +12,7 @@ Page({
         latitude: 0,
         longitude: 0,
         deviceInfo: {},
+        hasDeviceInfo: false,
         markers: [],
         deviceIconSrc: [
             "../../image/category_1.png", "../../image/category_2.png",
@@ -45,6 +46,7 @@ Page({
                 width: 46,
                 height: 50
             }],
+            hasDeviceInfo: true,
         });
     },
 
